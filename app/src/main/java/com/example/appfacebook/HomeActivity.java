@@ -1,17 +1,23 @@
 package com.example.appfacebook;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
+    private static final int REQUEST_PERMISSION_CODE = 1000;
     private RecyclerView rcvUser;
     private UserAdapter mUserAdapter;
 
@@ -30,6 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         rcvUser.setLayoutManager(gridLayoutManager);
 
         rcvUser.setAdapter(mUserAdapter);
+        getCallPhonePermission();
 
     }
 
@@ -48,5 +55,36 @@ public class HomeActivity extends AppCompatActivity {
         list.add(new User(R.drawable.grill, "patio & garden"));
 
         return list;
+    }
+    public void  getCallPhonePermission(){
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
+            return;
+        }
+
+        if(checkSelfPermission(Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
+            Toast.makeText(HomeActivity.this, "Granted", Toast.LENGTH_LONG).show();
+        }else{
+            if(shouldShowRequestPermissionRationale(Manifest.permission.CALL_PHONE)){
+
+            }
+
+            String[] permissions = {Manifest.permission.CALL_PHONE};
+            requestPermissions(permissions, REQUEST_PERMISSION_CODE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case REQUEST_PERMISSION_CODE: {
+                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+                }else{
+
+                }
+                return;
+            }
+        }
     }
 }

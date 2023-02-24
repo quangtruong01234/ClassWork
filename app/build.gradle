@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'com.example.appfacebook'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.appfacebook"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -39,4 +39,7 @@ dependencies {
 
     implementation "androidx.recyclerview:recyclerview:1.2.1"
     implementation "androidx.cardview:cardview:1.0.0"
+
+    implementation "androidx.room:room-runtime:2.5.0"
+    annotationProcessor "androidx.room:room-compiler:2.5.0"
 }
