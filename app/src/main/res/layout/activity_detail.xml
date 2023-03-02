@@ -3,46 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
-    <ImageView
-        android:id="@+id/img_name_item"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:src="@drawable/pharmacy"
-        android:scaleType="centerCrop"
-        />
 
-<!--    <EditText-->
-<!--        android:id="@+id/edit_username"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textSize="16sp"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:hint="Username"-->
-<!--        />-->
-<!--    <EditText-->
-<!--        android:id="@+id/edit_address"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textSize="16sp"-->
-<!--        android:layout_marginTop="14dp"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:hint="Address"-->
-<!--        />-->
 
-    <Button
-        android:id="@+id/btn_add_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        android:text="Add user"
-        android:background="#3658"
-        android:layout_marginTop="20dp"
-        />
+
     <TextView
         android:id="@+id/tv_name_item"
         android:layout_width="match_parent"
@@ -71,19 +38,16 @@
     <Button
         android:id="@+id/btn_call"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
         android:text="Call Store"
         app:layout_constraintEnd_toEndOf="@+id/tv_phone_number"
         app:layout_constraintStart_toStartOf="@+id/tv_phone_number"
         app:layout_constraintTop_toBottomOf="@+id/tv_phone_number" />
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rev_user"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        >
 
-    </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
 
 </LinearLayout>
